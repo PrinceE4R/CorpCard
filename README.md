@@ -1,4 +1,4 @@
-![Umbrella Corporation Logo](.\images\UCorp..png)
+![Umbrella Corporation Logo](./images/UCorp..png)
 
 # Umbrella Corporation
 
