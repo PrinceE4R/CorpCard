@@ -3,156 +3,323 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Access Cards</title>
+    <title>Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
     <style>
-        html, body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            padding: 0;
-            background: url('./images/Background.jpeg') no-repeat center center fixed;
-            background-size: cover;
-            overflow: hidden;
+        html,body{
+            background-color: #151515
         }
-        .card-container {
-            perspective: 1000px;
-            width: calc(250px*1);
-            height: calc(410px*1);
-            border-radius: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .card {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            transition: transform 0.8s;
-            transform-style: preserve-3d;
-        }
-        .front, .back {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            backface-visibility: hidden;
-            border-radius: 1rem;
-            overflow: hidden;
-        }
-        .back {
-            transform: rotateY(180deg);
-        }
-        .front img, .back img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .nav-button {
-            position: fixed;
-            top: 50%;
-            transform: translateY(-50%);
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 0;
-            width: 40px;
-            height: 40px;
-            z-index: 1000;
-        }
-        .nav-button.prev {
-            left: 20px;
-        }
-        .nav-button.next {
-            right: 20px;
-        }.nav-button {
-    position: fixed;
-    top: 50%;
-    transform: translateY(-50%);
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    width: 40px;
-    height: 40px;
-    z-index: 1000;
-    transition: transform 0.3s ease; /* Add smooth transition */
+.coloured-logo {
+  width: 17%;
+  height: 28.25%;
+  position: absolute;
+  left: 50%;
+  translate: -50% 0;
+  top: 18.5%;
+  object-fit: contain;
 }
-.nav-button.prev {
-    left: 20px;
+.base-box{
+  background: linear-gradient(
+    180deg,
+    rgba(153, 153, 153, 1) 0%,
+    rgba(80, 80, 80, 1) 100%
+  );
+  border-radius: 32px;
+  border-style: solid;
+  border-color: #dedede;
+  border-width: 5px;
+  width: 34.06%;
+  height: 32%;
+  position: absolute;
+  translate: -50%;
+  left: 50%;
+  bottom: 15.75%;
 }
-.nav-button.next {
-    right: 20px;
+.warning,
+.warning * {
+  height: 8%;
+  width: 25%;
+  bottom: 55px;
+  right: 15px;
 }
-.nav-button:hover {
-    transform: translateY(-50%) scale(1.3); /* Scale up on hover */
+.warning {
+  color: #ffffff;
+  text-align: left;
+  position: absolute;
 }
-.nav-button img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+.warning-span {
+  color: #ffffff;
+  font-family: "Inria Sans", sans-serif;
+  font-size: 0.9375vw;
+  font-weight: 400;
 }
-        .nav-button img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-    </style>
+.warning-span2 {
+  color: #ffffff;
+  font-family: "Inria Sans", sans-serif;
+  font-size: 0.751vw;
+  font-weight: 400;
+}
+.infos{
+  position: absolute;
+  width: 7.7%;
+  height: 18.51%;
+  left: 38.2%;
+  top: 56.57%;
+}
+.login {
+  position: absolute;
+  width: 6.4%;
+  height: 4%;
+  left: 58.54%;
+  top: 77.777%;
+  cursor: pointer;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.login:hover {
+  transform: scale(1.05);
+}
+
+.id {
+  background: #dedede;
+  border-radius: 8.95px;
+  border-color: transparent;
+  width: 14%;
+  height: 4%;
+  left: 47.7%;
+  top: 56.7%;
+  position: absolute;
+  padding: 5px 10px; 
+  font-size: 16px; 
+  outline: none; 
+  box-sizing: border-box;
+  font-family: "Inria Serif", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.name {
+  background: #dedede;
+  border-radius: 8.95px;
+  border-color: transparent;
+  width: 14%;
+  height: 4%;
+  left: 47.7%;
+  top: calc(56.57% + 5%);
+  position: absolute;
+  padding: 5px 10px; 
+  font-size: 16px; 
+  outline: none; 
+  box-sizing: border-box;
+  font-family: "Inria Serif", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.rid {
+  background: #dedede;
+  border-radius: 8.95px;
+  border-color: transparent;
+  width: 14%;
+  height: 4%;
+  left: 47.7%;
+  top: calc(56.57% + 10%);
+  position: absolute;
+  padding: 5px 10px; 
+  font-size: 16px; 
+  outline: none; 
+  box-sizing: border-box;
+  font-family: "Inria Serif", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.password {
+  background: #dedede;
+  border-radius: 8.95px;
+  border-color: transparent;
+  width: 14%;
+  height: 4%;
+  left: 47.7%;
+  top: calc(56.57% + 15%);
+  position: absolute;
+  padding: 5px 10px; 
+  font-size: 25px; 
+  outline: none; 
+  box-sizing: border-box; 
+  font-family: "Inria Serif", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@media screen and (max-width: 768px) {
+
+  .coloured-logo {
+    width: 153px;
+    height: 144px;
+    top: 220px;
+
+  }
+
+  .base-box{
+    width: 55%;
+    height: 160px;
+    top: 390px;
+  }
+
+  .infos{
+    width:68px;
+    height:92px;
+    top:412px;
+    left: 25%;
+  }
+
+  .id {
+    left:45.3%;
+    width: 100px;
+    height: 16.16px;
+    border-radius:4.12px;
+    font-size: 10px;
+    top:413px;
+  }
+
+  .name {
+    left:45.3%;
+    width: 100px;
+    height: 16.16px;
+    border-radius:4.12px;
+    font-size: 10px;
+    top:438px;
+  }
+
+  .rid {
+    left:45.3%;
+    width: 100px;
+    height: 16.16px;
+    border-radius:4.12px;
+    font-size: 10px;
+    top:463px;
+  }
+
+  .password {
+    left:45.3%;
+    width: 100px;
+    height: 16.16px;
+    border-radius:4.12px;
+    font-size: 15px;
+    top:488px;
+  }
+
+  .login{
+    width: 45px;
+    height: 15.8px;
+    top: 519px;
+    left:64%;
+  }
+
+  .warning{
+    display: none;
+  }
+
+}
+</style>
 </head>
 <body>
-    <button class="nav-button prev" onclick="changeCard(-1)">
-        <img src="./images/Prev.svg" alt="Previous">
-    </button>
-    
-    <div class="card-container">
-        <div class="card" onclick="flipCard()">
-            <div class="front">
-                <img src="./images/slabs/Umbrella Corp. Access Card Front.svg" alt="Front Image">
-            </div>
-            <div class="back">
-                <img src="./images/slabs/Umbrella Corp. Access Card Back.svg" alt="Back Image">
-            </div>
-        </div>
+    <img class="coloured-logo" src="./materials/colouredlogo.svg" />
+    <div class="login-page">
+        <div class="base-box"></div>
+        <img class="infos" src="./materials/infos.svg" />
+        <img class="login" src="./materials/login.svg" alt="Login" onclick="login()">
+        <input type="text" class="id" id="id-input">
+        <input type="text" class="name" id="name-input">
+        <input type="text" class="rid" id="rid-input">
+        <input type="text" class="password" id="password-input">
     </div>
+    <div class="warning">
+        <span>
+          <span class="warning-span">Security Warning</span>
+          <span class="warning-span2">
+            : Anything viewed beyond this screen is covered under the Umbrella
+            Corporation Security Agreement. Unauthorized use, tampering or recording
+            will be punished under Umbrella Corporation&#039;s Treason and Terrorism
+            Directive (Article 12. Paragraph 19. Section C).
+          </span>
+        </span>
+      </div>
+
+      <script>
+        const mem1infos = {
+            id: '#16Z2T766A2F3-SG',
+            name: 'SOUMALYA BASULI',
+            rid: 'SLABS-1-07',
+            password: 'sb1234567$'
+        };
     
-    <button class="nav-button next" onclick="changeCard(1)">
-        <img src="./images/Next.svg" alt="Next">
-    </button>
+        const mem2infos = {
+            id: '#16Z2T766A3E6-SV',
+            name: 'ANEEK GANGULY',
+            rid: 'BL4Z3-2-07',
+            password: '4444'
+        };
     
-    <script>
-        const cardsArray = [
-            {
-                folder: 'slabs',
-                frontImage: 'Umbrella Corp. Access Card Front.svg',
-                backImage: 'Umbrella Corp. Access Card Back.svg'
-            },
-            {
-                folder: 'bl4z3',
-                frontImage: 'Umbrella Corp. Access Card Front.svg',
-                backImage: 'Umbrella Corp. Access Card Back.svg'
+        let realPassword = '';
+    
+        document.getElementById('id-input').addEventListener('input', function() {
+            this.value = this.value.toUpperCase();
+        });
+    
+        document.getElementById('name-input').addEventListener('input', function() {
+            this.value = this.value.toUpperCase();
+        });
+    
+        document.getElementById('rid-input').addEventListener('input', function() {
+            this.value = this.value.toUpperCase();
+        });
+    
+        document.getElementById('password-input').addEventListener('input', function(e) {
+            const inputChar = e.data;
+    
+            if (inputChar !== null) {
+                realPassword += inputChar;
+            } else {
+                realPassword = realPassword.slice(0, -1);
             }
-        ];
-        
-        let currentCardIndex = 0;
-
-        function flipCard() {
-            const card = document.querySelector('.card');
-            card.style.transform = card.style.transform === 'rotateY(180deg)' ? 'rotateY(0deg)' : 'rotateY(180deg)';
+    
+            this.value = '•'.repeat(realPassword.length);
+        });
+    
+        function login() {
+            const idInput = document.getElementById('id-input').value;
+            const nameInput = document.getElementById('name-input').value;
+            const ridInput = document.getElementById('rid-input').value;
+    
+            const mem1Match = idInput === mem1infos.id &&
+                              nameInput === mem1infos.name &&
+                              ridInput === mem1infos.rid &&
+                              realPassword === mem1infos.password;
+    
+            const mem2Match = idInput === mem2infos.id &&
+                              nameInput === mem2infos.name &&
+                              ridInput === mem2infos.rid &&
+                              realPassword === mem2infos.password;
+    
+            if (mem1Match) {
+                window.location.href = './members/mem1.html';
+            } else if (mem2Match) {
+                window.location.href = './members/mem2.html';
+            } else {
+                alert('Invalid login credentials.');
+            }
+    
+            // Clear all input fields
+            document.getElementById('id-input').value = '';
+            document.getElementById('name-input').value = '';
+            document.getElementById('rid-input').value = '';
+            document.getElementById('password-input').value = '';
+            realPassword = '';
         }
-
-        function changeCard(direction) {
-            currentCardIndex = (currentCardIndex + direction + cardsArray.length) % cardsArray.length;
-            updateCardImages();
-        }
-
-        function updateCardImages() {
-            const currentCard = cardsArray[currentCardIndex];
-            const frontImg = document.querySelector('.front img');
-            const backImg = document.querySelector('.back img');
-            
-            frontImg.src = `./images/${currentCard.folder}/${currentCard.frontImage}`;
-            backImg.src = `./images/${currentCard.folder}/${currentCard.backImage}`;
-        }
-    </script>
+    </script>                  
 </body>
 </html>
