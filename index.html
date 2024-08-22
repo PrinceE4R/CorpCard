@@ -29,6 +29,7 @@
   border-radius: 32px;
   border-style: solid;
   border-color: #dedede;
+  transition: border-color 0.4s ease;
   border-width: 5px;
   width: 34.06%;
   height: 32%;
@@ -75,7 +76,7 @@
   left: 58.54%;
   top: 77.777%;
   cursor: pointer;
-  transition: transform 0.3s ease, border-color 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 .login:hover {
@@ -164,7 +165,7 @@
   }
 
   .base-box{
-    width: 55%;
+    width: 60%;
     height: 160px;
     top: 390px;
   }
@@ -182,7 +183,7 @@
     height: 16.16px;
     border-radius:4.12px;
     font-size: 10px;
-    padding: 5px 5px;
+    padding: 5px 5px; 
     top:413px;
   }
 
@@ -271,7 +272,12 @@
         let realPassword = '';
     
         document.getElementById('id-input').addEventListener('input', function() {
-            this.value = this.value.toUpperCase();
+            let value = this.value.toUpperCase();
+            if (value.length > 0 && !value.startsWith('#')) 
+            {
+            value = '#' + value;
+            }
+            this.value = value;
         });
     
         document.getElementById('name-input').addEventListener('input', function() {
@@ -311,18 +317,28 @@
     
             if (mem1Match) {
                 window.location.href = './members/mem1.html';
+                clear();
             } else if (mem2Match) {
                 window.location.href = './members/mem2.html';
+                clear();
             } else {
-                alert('Invalid login credentials.');
+              document.querySelector('.base-box').style.borderColor = '#AA0000';
+
+              setTimeout(function() {
+                   document.querySelector('.base-box').style.borderColor = '#dedede';
+                  }, 1500);
+
+                //alert('Invalid login credentials.');
             }
     
+        function clear() {
             // Clear all input fields
             document.getElementById('id-input').value = '';
             document.getElementById('name-input').value = '';
             document.getElementById('rid-input').value = '';
             document.getElementById('password-input').value = '';
             realPassword = '';
+          }
         }
     </script>                  
 </body>
