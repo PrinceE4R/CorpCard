@@ -5,30 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Corp. Flip Card</title>
     <style>
-html, body {
-    display: flex; /* Added */
-    justify-content: center; /* Added */
-    align-items: center; /* Added */
-    height: 100vh;
-    margin: 0; /* Ensure no margins affect centering */
-    padding: 0; /* Ensure no padding affects centering */
-    background-image: url(./Background.jpeg);
-    background-size: cover;
-    background-position: center;
-    overflow: hidden;
-}
+        html, body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            background-image: url(./Background.jpeg);
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+        }
 
-.card-container {
-    perspective: 1000px;
-    width: calc(250px*1);
-    height: calc(410px*1);
-    border-radius: 20px;
-    display: flex; /* Added to enable inner content centering if needed */
-    justify-content: center; /* Center inner content horizontally */
-    align-items: center; /* Center inner content vertically */
-    position: fixed;
-}
-
+        .card-container {
+            perspective: 1000px;
+            width: calc(250px*1);
+            height: calc(410px*1);
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+        }
 
         .card {
             position: relative;
@@ -56,9 +55,23 @@ html, body {
             height: 100%;
             object-fit: cover;
         }
+
+        #overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            z-index: 9999;
+        }
     </style>
 </head>
 <body>
+    <div id="overlay">
+        <iframe src=".\rotating_umbrella\run.html" width="100%" height="100%" frameborder="0"></iframe>
+    </div>
+
     <div class="card-container">
         <div class="card" onclick="flipCard()">
             <div class="front">
@@ -75,6 +88,12 @@ html, body {
             const card = document.querySelector('.card');
             card.style.transform = card.style.transform === 'rotateY(180deg)' ? 'rotateY(0deg)' : 'rotateY(180deg)';
         }
+
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('overlay').style.display = 'none';
+            }, 1000); // Delay of 1 second (1000 milliseconds)
+        });
     </script>
 </body>
 </html>
